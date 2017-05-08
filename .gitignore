@@ -1,0 +1,9 @@
+*.idea
+.DS_Store
+*.map
+node_modules
+run.bat
+notepad_project.html
+.vscode/
+npm-debug.log
+*.swp

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Socket.IO Chat Example</title>
+</head>
+<body>
+  
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+    <script>
+        var socket = io.connect('http://127.0.0.1:3000');
+        socket.on('test02',function(args){
+            console.log(args);
+        });
+        socket.on('connect',function(){
+            socket.emit('identity',{
+                uid: 1,
+                token: '123456789'
+            });
+        });
+        socket.on('result',function(args){
+            console.log(args);
+            socket.emit('test01',{msg:'hello world'});
+        });
+    </script>
+</body>
+</html>
